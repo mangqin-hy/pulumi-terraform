@@ -464,6 +464,14 @@ describe("signum", () => {
     });
 });
 
+describe("split", () => {
+    it("passes Terraform tests", () => {
+        assert.deepEqual(sut.split(",", "a,,b"), ["a", "b"]);
+        assert.deepEqual(sut.split(",", "a,b,"), ["a", "b"]);
+        assert.deepEqual(sut.split(",", ""), []);
+    });
+});
+
 describe("substr", () => {
     it("passes Terraform tests", () => {
         assert.equal(sut.substr("foobar", 0, 0), "");
