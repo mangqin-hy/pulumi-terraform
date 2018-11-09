@@ -244,6 +244,13 @@ describe("file", () => {
     });
 });
 
+describe("floor", () => {
+    it("passes Terraform tests", () => {
+        assert.equal(sut.floor(-1.3), -2);
+        assert.equal(sut.floor(1.7), 1);
+    });
+});
+
 describe("format", () => {
     it("passes Terraform tests", () => {
         assert.equal(sut.format("hello"), "hello");

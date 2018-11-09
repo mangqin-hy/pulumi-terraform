@@ -237,6 +237,10 @@ export function file(path: string): string {
     return fs.readFileSync(path, "utf-8");
 }
 
+export function floor(input: number): number {
+    return Math.floor(input);
+}
+
 /**
  * format returns a string formatted using the given base string and arguments.
  *
