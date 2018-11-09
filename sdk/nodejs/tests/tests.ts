@@ -436,6 +436,16 @@ describe("pow", () => {
     });
 });
 
+describe("replace", () => {
+    it("passes Terraform tests", () => {
+        assert.equal(sut.replace("hello", "hel", "bel"), "bello");
+        assert.equal(sut.replace("hello", "nope", "bel"), "hello");
+        assert.equal(sut.replace("hello", /l/g, "L"), "heLLo");
+        assert.equal(sut.replace("hello", /(l)/, "$1"), "hello");
+        assert.equal(sut.replace("helo", /(l)/, "$1$1"), "hello");
+    });
+});
+
 describe("sha1", () => {
     it("passes Terraform tests", () => {
         assert.equal(sut.sha1("test"), "a94a8fe5ccb19ba61c4c0873d391e987982fbbd3");

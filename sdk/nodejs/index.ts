@@ -395,6 +395,10 @@ export function pow(base: number, exponent: number): number {
     return Math.pow(base, exponent);
 }
 
+export function replace(input: string, toMatch: string | RegExp, replacement: string): string {
+    return input.replace(toMatch, replacement);
+}
+
 export function sha1(input: string): string {
     const hash = crypto.createHash("sha1");
     hash.update(input);
@@ -422,10 +426,6 @@ export function signum(input: number): number {
     } else {
         return 1;
     }
-}
-
-export function upper(input: string): string {
-    return input.toUpperCase();
 }
 
 export function slice(input: string[], start: number, end: number): string[] {
@@ -506,12 +506,16 @@ export function trimspace(input: string): string {
     return input.trim();
 }
 
-export function urlencode(input: string): string {
-    return encodeURIComponent(input);
+export function upper(input: string): string {
+    return input.toUpperCase();
 }
 
 export function uuid(): string {
     return v4().toString();
+}
+
+export function urlencode(input: string): string {
+    return encodeURIComponent(input);
 }
 
 export function values<T>(inputMap: { [k: string]: T }): T[] {
