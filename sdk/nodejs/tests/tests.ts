@@ -464,6 +464,12 @@ describe("signum", () => {
     });
 });
 
+describe("sort", () => {
+    it("passes Terraform tests", () => {
+        assert.deepEqual(sut.sort(["c", "a", "b"]), ["a", "b", "c"]);
+    });
+});
+
 describe("split", () => {
     it("passes Terraform tests", () => {
         assert.deepEqual(sut.split(",", "a,,b"), ["a", "b"]);

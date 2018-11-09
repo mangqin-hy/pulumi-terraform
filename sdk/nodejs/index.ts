@@ -428,6 +428,10 @@ export function upper(input: string): string {
     return input.toUpperCase();
 }
 
+export function sort(input: string[]): string[] {
+    return input.sort();
+}
+
 export function split(separator: string, input: string): string[] {
     return input.split(separator).filter(x => x !== "");
 }
