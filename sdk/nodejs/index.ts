@@ -428,6 +428,30 @@ export function upper(input: string): string {
     return input.toUpperCase();
 }
 
+export function substr(input: string, offset: number, len: number): string {
+    if (offset < 0) {
+        offset += input.length;
+    }
+
+    if (len === -1) {
+        len = input.length;
+    } else if (len >= 0) {
+        len += offset;
+    } else {
+        throw new Error("len should be -1, 0 or positive");
+    }
+
+    if (offset > input.length || offset < 0) {
+        throw new Error("offset may not be larger than the length of input");
+    }
+
+    if (len > input.length) {
+        throw new Error("offset+length may noe be larger than the length of input");
+    }
+
+    return input.substr(offset, len);
+}
+
 export function transpose(inputMap: { [k: string]: string[] }): { [k: string]: string[] } {
     const tempMap: { [k: string]: Set<string> } = {};
 

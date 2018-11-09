@@ -464,6 +464,21 @@ describe("signum", () => {
     });
 });
 
+describe("substr", () => {
+    it("passes Terraform tests", () => {
+        assert.equal(sut.substr("foobar", 0, 0), "");
+        assert.equal(sut.substr("foobar", 0, -1), "foobar");
+        assert.equal(sut.substr("foobar", 0, 3), "foo");
+        assert.equal(sut.substr("foobar", 3, 3), "bar");
+        assert.equal(sut.substr("foobar", -3, 3), "bar");
+        assert.equal(sut.substr("", 0, 0), "");
+        assert.throws(() => sut.substr("foo", -4, -1));
+        assert.throws(() => sut.substr("", 1, 0));
+        assert.throws(() => sut.substr("", 0, 1));
+        assert.throws(() => sut.substr("", 0, -2));
+    });
+});
+
 describe("timestamp", () => {
     it("passes Terraform tests", () => {
         assert.isTrue(validator.isRFC3339(sut.timestamp()));
