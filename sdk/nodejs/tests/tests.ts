@@ -464,6 +464,18 @@ describe("signum", () => {
     });
 });
 
+describe("slice", () => {
+    it("passes Terraform tests", () => {
+        assert.deepEqual(sut.slice(["a", "b", "c"], 1, 1), []);
+        assert.deepEqual(sut.slice(["a", "b", "c"], 1, 2), ["b"]);
+        assert.deepEqual(sut.slice(["a", "b", "c"], 0, 2), ["a", "b"]);
+
+        assert.throws(() => sut.slice(["a"], -1, 0));
+        assert.throws(() => sut.slice(["a", "b", "c"], 2, 1));
+        assert.throws(() => sut.slice(["a", "b", "c"], 1, 4));
+    });
+});
+
 describe("sort", () => {
     it("passes Terraform tests", () => {
         assert.deepEqual(sut.sort(["c", "a", "b"]), ["a", "b", "c"]);

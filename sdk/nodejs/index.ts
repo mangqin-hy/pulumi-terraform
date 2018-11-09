@@ -428,6 +428,20 @@ export function upper(input: string): string {
     return input.toUpperCase();
 }
 
+export function slice(input: string[], start: number, end: number): string[] {
+    if (start < 0) {
+        throw new Error("start must be greater than or equal to 0");
+    }
+    if (end > input.length) {
+        throw new Error("end must be less than or equal to the length of input");
+    }
+    if (start > end) {
+        throw new Error("start must be less than or equal to end");
+    }
+
+    return input.slice(start, end);
+}
+
 export function sort(input: string[]): string[] {
     return input.sort();
 }
