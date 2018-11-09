@@ -53,7 +53,7 @@ export function basename(path: string): string {
  * @param encoded valid base64-encoded string
  */
 export function base64decode(encoded: string): string {
-    const decoded = new Buffer(encoded, "base64").toString("utf-8");
+    const decoded = Buffer.from(encoded, "base64").toString("utf-8");
     if (decoded.length !== ((encoded.length / 4) * 3)) {
         throw new Error("failed to decode base64 data");
     }
@@ -67,7 +67,7 @@ export function base64decode(encoded: string): string {
  * @param unencoded the string to encode
  */
 export function base64encode(unencoded: string): string {
-    return new Buffer(unencoded).toString("base64");
+    return Buffer.from(unencoded).toString("base64");
 }
 
 /**
@@ -223,7 +223,7 @@ export function distinct(input: string[]): string[] {
 }
 
 export function element(inputList: string[], elementIndex: number) {
-    if (list.length === 0) {
+    if (inputList.length === 0) {
         throw new Error("list must not be empty");
     }
     if (elementIndex < 0) {
@@ -424,7 +424,7 @@ export function upper(input: string): string {
     return input.toUpperCase();
 }
 
-export function transpose(inputMap: { [k: string]: Array<string> }): { [k: string]: string[] } {
+export function transpose(inputMap: { [k: string]: string[] }): { [k: string]: string[] } {
     const tempMap: { [k: string]: Set<string> } = {};
 
     for (const entry of Object.keys(inputMap)) {
